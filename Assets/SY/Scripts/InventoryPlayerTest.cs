@@ -15,10 +15,14 @@ public class InventoryPlayerTest : MonoBehaviour
                 Inventory.instance.AddItem(items[i]);
             }
         }
+        CraftPanelUI.instance.UpdateResources();
+        CraftPanelUI.instance.ResetCurRecipes();
     }
     public void OnClickAddRandomItemButton()
     {
         int index = Random.Range(0, items.Length);
         Inventory.instance.AddItem(items[index]);
+        CraftPanelUI.instance.UpdateResources();
+        CraftPanelUI.instance.ResetCurRecipes();
     }
 }
