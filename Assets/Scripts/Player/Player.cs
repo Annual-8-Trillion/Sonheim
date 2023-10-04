@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -29,10 +30,12 @@ public class Player : MonoBehaviour
     private float timeFromLastThirstChanged;
 
     private MeshRenderer[] meshRenderers;
+    private PlayerInput playerInput;
 
     private void Awake()
     {
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
     private void Start()
@@ -206,6 +209,8 @@ public class Player : MonoBehaviour
 
     IEnumerator GameOver()
     {
+        playerInput.enabled = false;
+
         yield return new WaitForSeconds(3.0f);
 
         SceneManager.LoadScene("MainScene");
@@ -217,7 +222,6 @@ public class Player : MonoBehaviour
         {
             Enemy enemy = other.GetComponentInParent<Enemy>();
             AddHp((float)enemy.damage * -1f);
-            Debug.Log(status.CurHealth);
         }
     }
 }
