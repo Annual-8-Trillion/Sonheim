@@ -30,6 +30,12 @@ public class TileMapGenerator : MonoBehaviour
         DrawMapTiles();
     }
 
+    private void Start()
+    {
+        Transform playerTransform = GameManager.Instance.Player.transform;
+        playerTransform.position = MapGrid.CellToWorld(new Vector3Int(size.x / 2, size.y / 2)) + Vector3.up * 3f;
+    }
+
     void GenerateMap()
     {
         MapHeights = new int[size.x, size.y];
