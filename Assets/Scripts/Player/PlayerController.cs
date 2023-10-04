@@ -132,6 +132,33 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    public void OnCraftPanelInput(InputAction.CallbackContext context)
+    {
+        Debug.Log("Crafting!");
+        if (context.phase == InputActionPhase.Started)
+        {
+            CraftPanelUI.instance.Toggle();
+        }
+
+    }
+    public void OnAddResourcesInput(InputAction.CallbackContext context)
+    {
+        Debug.Log("재료가 1개씩 늘었다!");
+        if (context.phase == InputActionPhase.Started)
+        {
+            GetComponent<InventoryPlayerTest>().OnClickAddItemsButton();
+        }
+
+    }
+    public void OnAddRandomItemInput(InputAction.CallbackContext context)
+    {
+        Debug.Log("랜덤하게 아이템이 생성되었다!");
+        if (context.phase == InputActionPhase.Started)
+        {
+            GetComponent<InventoryPlayerTest>().OnClickAddRandomItemButton();
+        }
+
+    }
 
     public void OnAttackInput(InputAction.CallbackContext context)
     {
