@@ -8242,6 +8242,13 @@ MonoBehaviour:
   slots: []
   equips: []
   inventoryPanel: {fileID: 117048447}
+  startItems:
+  - {fileID: 11400000, guid: 17e2c22efc1264448934c7a871b82540, type: 2}
+  - {fileID: 11400000, guid: b6a5aa4a0e2e94938a7d238f64e1c5eb, type: 2}
+  - {fileID: 11400000, guid: b6a5aa4a0e2e94938a7d238f64e1c5eb, type: 2}
+  - {fileID: 11400000, guid: 0ed17bceed44244c9b95fe819880b6d7, type: 2}
+  - {fileID: 11400000, guid: 0ed17bceed44244c9b95fe819880b6d7, type: 2}
+  - {fileID: 11400000, guid: bf4b407c37ec24e09a05539b7129ef35, type: 2}
   selectedItem:
     item: {fileID: 0}
     isEquipped: 0
