@@ -7,15 +7,16 @@ public enum ItemType
 {
     Resource,
     Equipable,
-    Consumable
+    Consumable,
+    Installable
 }
 
 public enum ConsumableType
 {
     Hunger,
-    Thirst
-    // Health
-    // Stamina
+    Thirst,
+    Health,
+    Stamina
     // Immune, Resistance (Fire, Cold, Poison) 
 }
 
@@ -36,6 +37,7 @@ public class ItemData : ScriptableObject
     public Sprite Icon;
     public GameObject DropPrefab;
     public GameObject WeaponPrefab;
+    public GameObject InstallablePrefab;
 
     [Header("Stacking")]
     public bool IsStackable;

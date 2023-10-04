@@ -61,7 +61,7 @@ public class Inventory : MonoBehaviour
 
     private ItemManager itemManager;
     private PlayerController controller;
-
+    private PlayerObjectInstaller installer;
 
     private void Awake()
     {
@@ -81,6 +81,7 @@ public class Inventory : MonoBehaviour
         }
 
         controller = GetComponent<PlayerController>();
+        installer = GetComponent<PlayerObjectInstaller>();
     }
 
     private void Start()
@@ -217,7 +218,7 @@ public class Inventory : MonoBehaviour
         useButton.SetActive(selectedItem.item.Type == ItemType.Consumable);
         equipButton.SetActive(selectedItem.item.Type == ItemType.Equipable && !slots[index].isEquipped);
         unequipButton.SetActive(selectedItem.item.Type == ItemType.Equipable && slots[index].isEquipped);
-        placeButton.SetActive(selectedItem.item.DisplayName == "돌멩이" || selectedItem.item.DisplayName == "나무");
+        placeButton.SetActive(selectedItem.item.Type == ItemType.Installable);
         dropButton.SetActive(true);
     }
     public void ClearSelectedItemWindow()
@@ -238,25 +239,28 @@ public class Inventory : MonoBehaviour
 
     public void OnUseButton()
     {
-        //if (selectedItem.item.itemType == ITEMTYPE_SY.CONSUMABLE)
-        //{
-        //    for( int i= 0; i < selectedItem.item.consumables.Length; i++)
-        //    {
-        //        switch (selectedItem.item.consumables[i].type)
-        //        {
-        //            case ConsumableType.Health:
-        //                // 플레이어쪽 살펴보기
-        //                break;
+        if (selectedItem.item.Type == ItemType.Consumable)
+        {
+            for (int i = 0; i < selectedItem.item.Consumables.Length; i++)
+            {
+                switch (selectedItem.item.Consumables[i].Type)
+                {
+                    case ConsumableType.Hunger:
+                        player.AddHunger((float)selectedItem.item.Consumables[i].Value,false);
+                        break;
 
-        //            case ConsumableType.Hunger:
-        //                // 플레이어쪽 살펴보기
-        //                break;
-        //            case ConsumableType.Thirsty:
-        //                // 플레이어쪽 살펴보기
-        //                break;
-        //        }
-        //    }
-        //}
+                    case ConsumableType.Thirst:
+                        player.AddThirst((float)selectedItem.item.Consumables[i].Value,false);
+                        break;
+                    case ConsumableType.Health:
+                        player.AddHp((float)selectedItem.item.Consumables[i].Value, false);
+                        break;
+                    case ConsumableType.Stamina:
+                        player.AddStamina((float)selectedItem.item.Consumables[i].Value, false);
+                        break;
+                }
+            }
+        }
         RemoveSelectedItem();
     }
     public void OnEquipButton()
@@ -276,8 +280,10 @@ public class Inventory : MonoBehaviour
 
     public void OnPlaceButton()
     {
-        Debug.Log("여기에 필요한 기능 넣으시면 될것 같습니다.");
-        // 아직 미구현
+        GameObject prefab = selectedItem.item.InstallablePrefab;
+
+        bool isSuccess = installer.InstallObject(prefab);
+        if (isSuccess) RemoveSelectedItem();
     }
 
     public void OnDropButton()
@@ -313,7 +319,7 @@ public class Inventory : MonoBehaviour
         selectedItem.isEquipped = false;
         if (equips[0] == selectedItem)
         {
-            GameManager.Instance.Player.UnEquipWeapon(equips[0].item.WeaponPrefab);
+            player.UnEquipWeapon(equips[0].item.WeaponPrefab);
             equips[0] = null;
         }
 
@@ -328,7 +334,7 @@ public class Inventory : MonoBehaviour
         if (equips[0] != null) equips[0].isEquipped = false;
         equips[0] = selectedItem;
 
-        GameManager.Instance.Player.EquipWeapon(selectedItem.item.WeaponPrefab);
+        player.EquipWeapon(selectedItem.item.WeaponPrefab);
 
         UpdateUI();
         SelectItem(selectedItemIndex);

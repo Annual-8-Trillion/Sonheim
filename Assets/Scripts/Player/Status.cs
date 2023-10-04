@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Status
 {
 
     public event Action<Status> OnStatusChanged;
 
-    private float curHealth;
+    [SerializeField] private float curHealth;
     public float CurHealth
     {
         get
@@ -17,13 +18,13 @@ public class Status
         }
         set
         {
-            if (curHealth != value) { CallStatusChangedEvent(); }
+            float preValue = curHealth;
             curHealth = value;
-            
+            if (preValue != value) { CallStatusChangedEvent(); }
         }
     }
 
-    private float maxHealth;
+    [SerializeField] private float maxHealth;
     public float MaxHealth
     {
         get
@@ -32,12 +33,13 @@ public class Status
         }
         set
         {
-            if (maxHealth != value) { CallStatusChangedEvent(); }
+            float preValue = maxHealth;
             maxHealth = value;
+            if (preValue != value) { CallStatusChangedEvent(); }
         }
     }
 
-    private float stamina;
+    [SerializeField] private float stamina;
     public float Stamina
     {
         get
@@ -46,12 +48,13 @@ public class Status
         }
         set
         {
-            if (stamina != value) { CallStatusChangedEvent(); }
+            float preValue = stamina;
             stamina = value;
+            if (preValue != value) { CallStatusChangedEvent(); }
         }
     }
 
-    private float hunger;
+    [SerializeField] private float hunger;
     public float Hunger
     {
         get
@@ -60,7 +63,7 @@ public class Status
         }
         set
         {
-            if (Hunger != value) { CallStatusChangedEvent(); }
+            float preValue = hunger;
             hunger = value;
             if (hunger >= 100f) hunger = 100f;
             if (hunger < 0f)
@@ -68,10 +71,11 @@ public class Status
                 curHealth += hunger;
                 hunger = 0f;
             }
+            if (preValue != value) { CallStatusChangedEvent(); }
         }
     }
 
-    private float thirst;
+    [SerializeField] private float thirst;
     public float Thirst
     {
         get
@@ -80,7 +84,7 @@ public class Status
         }
         set
         {
-            if (thirst != value) { CallStatusChangedEvent(); }
+            float preValue = thirst;
             thirst = value;
             if (thirst >= 100f) thirst = 100f;
             if (thirst < 0f)
@@ -88,6 +92,7 @@ public class Status
                 curHealth += thirst;
                 thirst = 0f;
             }
+            if (preValue != value) { CallStatusChangedEvent(); }
         }
     }
 

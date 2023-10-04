@@ -21,7 +21,7 @@ public class HUD_Guages : MonoBehaviour
         Vector2 hp = hpGuageFill.sizeDelta;
         Vector2 stamina = staminaGuageFill.sizeDelta;
         Vector2 hunger = hungerGuageFill.sizeDelta;
-        Vector2 thirsty = thirstyGuageFill.sizeDelta;
+        Vector2 thirst = thirstyGuageFill.sizeDelta;
 
         hp.x = (newStatus.CurHealth / newStatus.MaxHealth) * 300f;
         hpGuageFill.sizeDelta = hp;
@@ -29,8 +29,8 @@ public class HUD_Guages : MonoBehaviour
         staminaGuageFill.sizeDelta = stamina;
         hunger.x = newStatus.Hunger * 3f;
         hungerGuageFill.sizeDelta = hunger;
-        thirsty.x = newStatus.Thirst * 3f;
-        thirstyGuageFill.sizeDelta = thirsty;
+        thirst.x = newStatus.Thirst * 3f;
+        thirstyGuageFill.sizeDelta = thirst;
 
     }
 }

@@ -1641,7 +1641,14 @@ MonoBehaviour:
   userInventory: {fileID: 0}
   resources: []
   craftBox: []
-  craftRecipes: []
+  craftRecipes:
+  - {fileID: 11400000, guid: cf62b29d05cb7ba42857f40fd9cb16d0, type: 2}
+  - {fileID: 11400000, guid: eb7ee57d4b414844c9415a9b72bf0e6e, type: 2}
+  - {fileID: 11400000, guid: 94beeaeb27500e7419421a84f378b7a9, type: 2}
+  - {fileID: 11400000, guid: dd3c9ecff8af7cd4d8e1384db73c7e09, type: 2}
+  - {fileID: 11400000, guid: e27a979da2f4e8b4187e8299eb29e875, type: 2}
+  - {fileID: 11400000, guid: 10a061e3ec346e3479ef7b3bfde55cd5, type: 2}
+  - {fileID: 11400000, guid: c38506623566f3d4d804c17669feb4ff, type: 2}
   selectedItemName: {fileID: 5429231859516351880}
   selectedItemDescription: {fileID: 7754251502313717612}
   addButton: {fileID: 1195304274708248400}

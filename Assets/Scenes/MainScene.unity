@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5702,7 +5702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7519373292242588526, guid: d65b968de922ea24f8382ffad9474796, type: 3}
       propertyPath: craftRecipes.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7519373292242588526, guid: d65b968de922ea24f8382ffad9474796, type: 3}
       propertyPath: craftRecipes.Array.data[0]
@@ -5724,6 +5724,14 @@ PrefabInstance:
       propertyPath: craftRecipes.Array.data[4]
       value: 
       objectReference: {fileID: 11400000, guid: c38506623566f3d4d804c17669feb4ff, type: 2}
+    - target: {fileID: 7519373292242588526, guid: d65b968de922ea24f8382ffad9474796, type: 3}
+      propertyPath: craftRecipes.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: eb7ee57d4b414844c9415a9b72bf0e6e, type: 2}
+    - target: {fileID: 7519373292242588526, guid: d65b968de922ea24f8382ffad9474796, type: 3}
+      propertyPath: craftRecipes.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 94beeaeb27500e7419421a84f378b7a9, type: 2}
     - target: {fileID: 7519373292242588526, guid: d65b968de922ea24f8382ffad9474796, type: 3}
       propertyPath: onOpenInventory.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -7876,6 +7884,7 @@ GameObject:
   - component: {fileID: 1556435579}
   - component: {fileID: 1556435576}
   - component: {fileID: 1556435578}
+  - component: {fileID: 1556435585}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -7952,6 +7961,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a6d32a27c361743bf8ed176f1a20c4cf, type: 2}
   - {fileID: 11400000, guid: 5c411934b44ed4ac4a294f29a13f387a, type: 2}
   - {fileID: 11400000, guid: 1a46314ff4e9b4ecf8111e946fdf1719, type: 2}
+  - {fileID: 11400000, guid: 77fa8e47f47fb2144b2afb347989e79e, type: 2}
+  - {fileID: 11400000, guid: 4ca12ddbcae8c4c45ac9a58732b61924, type: 2}
 --- !u!114 &1556435580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8194,6 +8205,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1556435585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556435575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1d386812041450a94613772b940a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectSpawner: {fileID: 1841776988}
 --- !u!1 &1571271773
 GameObject:
   m_ObjectHideFlags: 0

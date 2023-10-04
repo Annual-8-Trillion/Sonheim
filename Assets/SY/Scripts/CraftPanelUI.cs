@@ -46,7 +46,7 @@ public class CraftPanelUI : MonoBehaviour
     public UnityEvent onCloseInventory;
 
     [HideInInspector] public Dictionary<ItemData, List<CraftRecipe>> recipeDictionary;
-    [HideInInspector] public List<CraftRecipe> curRecipesList;
+    public List<CraftRecipe> curRecipesList;
     [HideInInspector] public CraftRecipe selectedRecipe;
     [HideInInspector] public CraftState craftBoxState;
     [HideInInspector] public ItemSlot selectedItem;

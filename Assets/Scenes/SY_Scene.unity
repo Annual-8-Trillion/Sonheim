@@ -2391,6 +2391,7 @@ MonoBehaviour:
   equipButton: {fileID: 749524047}
   unequipButton: {fileID: 849427558}
   dropButton: {fileID: 258686907}
+  placeButton: {fileID: 0}
   onOpenInventory:
     m_PersistentCalls:
       m_Calls:
@@ -2444,7 +2445,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3978c360d8ac5d647acd85ddbe37dbf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weapon: {fileID: 0}
   weaponPoint: {fileID: 0}
+  hpChangeDelay: 0
+  staminaChangeDelay: 0
+  hungerChangeDelay: 0
+  thirstChangeDelay: 0
 --- !u!114 &220193674
 MonoBehaviour:
   m_ObjectHideFlags: 0
