@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     public float hungerChangeDelay;
     public float thirstChangeDelay;
 
+    private bool isLive;
     private bool isHpChangable;
     private bool isStaminaChangable;
     private bool isHungerChangable;
@@ -35,6 +37,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        isLive = true;
         isHpChangable = true;
         isStaminaChangable = true;
         isHungerChangable = true;
@@ -121,7 +124,7 @@ public class Player : MonoBehaviour
     }
     public void AddHp(float value)
     {
-        if (isHpChangable)
+        if (isHpChangable && isLive)
         {
             if (value < 0f)
             {
@@ -130,6 +133,14 @@ public class Player : MonoBehaviour
             status.CurHealth += value;
             timeFromLastHpChanged = 0f;
             isHpChangable = false;
+
+            if (status.CurHealth <= 0f)
+            {
+                PlayerController.instance._animator.SetTrigger("DoDie");
+                isLive = false;
+
+                StartCoroutine("GameOver");
+            }
         }
     }
     public void AddHp(float value, bool hasDelay)
@@ -191,6 +202,13 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         for (int x = 0; x < meshRenderers.Length; x++)
             meshRenderers[x].material.color = Color.white;
+    }
+
+    IEnumerator GameOver()
+    {
+        yield return new WaitForSeconds(3.0f);
+
+        SceneManager.LoadScene("MainScene");
     }
 
     private void OnTriggerEnter(Collider other)

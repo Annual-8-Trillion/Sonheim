@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 direction;
 
     private Rigidbody _rigidbody;
-    private Animator _animator;
+    public Animator _animator;
 
     private bool isSprint = false;
     private bool canAttack = true;
