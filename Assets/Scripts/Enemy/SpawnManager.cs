@@ -7,13 +7,15 @@ public class SpawnManager : MonoBehaviour
     public GameObject enemyPrefab1;
     public GameObject enemyPrefab2;
     public GameObject enemyPrefab3;
-
+    public GameObject enemyPrefab4;
 
     public float spawnInterval = 5f;
 
     private Transform skeletonSpawner;
     private Transform spiderSpawner;
     private Transform cactusSpawner;
+    private Transform chickenSpawner;
+
 
     private int enemyCount = 0;
 
@@ -22,6 +24,8 @@ public class SpawnManager : MonoBehaviour
         skeletonSpawner = GameObject.Find("SkeletonSpawner").transform;
         cactusSpawner = GameObject.Find("CactusSpawner").transform;
         spiderSpawner = GameObject.Find("SpiderSpawner").transform;
+        chickenSpawner = GameObject.Find("ChickenSpawner").transform;
+
 
         StartCoroutine(SpawnNPC());
     }
@@ -31,7 +35,7 @@ public class SpawnManager : MonoBehaviour
         while (enemyCount < 5)
         {
             yield return new WaitForSeconds(spawnInterval);
-            
+
             Vector3 spawnPosition1 = skeletonSpawner.position;
             GameObject npcInstance1 = Instantiate(enemyPrefab1, spawnPosition1 + Vector3.up, Quaternion.identity);
 
@@ -40,6 +44,9 @@ public class SpawnManager : MonoBehaviour
 
             Vector3 spawnPosition3 = spiderSpawner.position;
             GameObject npcInstance3 = Instantiate(enemyPrefab3, spawnPosition3 + Vector3.up, Quaternion.identity);
+
+            Vector3 spawnPosition4 = chickenSpawner.position;
+            GameObject npcInstance4 = Instantiate(enemyPrefab4, spawnPosition4 + Vector3.up, Quaternion.identity);
 
 
             enemyCount++;
