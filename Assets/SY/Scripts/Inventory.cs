@@ -34,6 +34,8 @@ public class Inventory : MonoBehaviour
 
     public GameObject inventoryPanel;
 
+    [Header("Start Items")]
+    public ItemData[] startItems;
     [Header("Selected Item")]
     [SerializeField] private ItemSlot selectedItem;
     private int selectedItemIndex;
@@ -97,6 +99,11 @@ public class Inventory : MonoBehaviour
         }
 
         itemManager = ItemManager._instance;
+        
+        for( int i= 0; i < startItems.Length ; i++)
+        {
+            AddItem(startItems[i]);
+        }
 
         ClearSelectedItemWindow();
     }
