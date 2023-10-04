@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f02e6c56473345a8a29f3ccb8d6113f, type: 3}
+  m_Name: CactusFruit
+  m_EditorClassIdentifier: 
+  DisplayName: "\uBC31\uB144\uCD08"
+  Description: "\uBD88\uC30D\uD55C \uC120\uC778\uC7A5..."
+  Type: 2
+  Icon: {fileID: 21300000, guid: 3508f8b9fd7834caf87db0be579908f2, type: 3}
+  DropPrefab: {fileID: 2886496880590258830, guid: db47e0c2d379c4101b87ca4a1d862086, type: 3}
+  WeaponPrefab: {fileID: 0}
+  IsStackable: 1
+  MaxStackAmount: 99
+  Consumables:
+  - Type: 0
+    Value: 5
+  - Type: 1
+    Value: 5
