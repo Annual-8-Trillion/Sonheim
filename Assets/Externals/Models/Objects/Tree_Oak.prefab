@@ -135,3 +135,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItem: {fileID: 11400000, guid: 1a46314ff4e9b4ecf8111e946fdf1719, type: 2}
+  dropNumber: 3

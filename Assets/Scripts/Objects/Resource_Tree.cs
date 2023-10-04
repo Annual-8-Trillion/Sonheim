@@ -7,6 +7,7 @@ using UnityEngine;
 public class Resource_Tree : MonoBehaviour
 {
     public ItemData dropItem;
+    [SerializeField] private int dropNumber;
     
     private int _destroyCount;
     private MeshCollider _collider;
@@ -23,7 +24,7 @@ public class Resource_Tree : MonoBehaviour
             {
                 Vector3 dropPosition = gameObject.transform.position;
                 dropPosition.y += 2;
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < dropNumber; i++)
                     ItemManager._instance.DropNewItem(dropPosition, dropItem);
                 Destroy(gameObject);
             }
